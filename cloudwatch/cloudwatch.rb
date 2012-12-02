@@ -135,7 +135,7 @@ def monitor_aws(apikey)
         puts "RDS: #{db.db_instance_id} #{stats[:datapoints][0][:average]*1000} write latency (ms)" if @debug
         metrics["WriteLatency"] = stats[:datapoints][0][:average]*1000
       end
-
+      puts "storing...."
       rm.store_sample("aws_rds", instance, Time.now.to_i, metrics)
     end
 
